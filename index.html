@@ -12,6 +12,8 @@
   --red-dark: #A03E37;
   --red-mid:  #C94A3F;
   --red-warm: #D97060;
+  --blue:     #1B4E92;
+  --blue-dark: #123A6E;
   --cream:    #F9F7F4;
   --offwhite: #FFFFFF;
   --ink:      #1A1A1A;
@@ -35,6 +37,7 @@ nav {
 .nav-links a { text-decoration: none; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
 .nav-links a:hover { color: var(--red); }
 .nav-links .nav-hide { display: none; }
+.nav-buttons { display: flex; gap: 0.5rem; align-items: center; }
 .nav-call { 
   background: var(--red) !important; 
   color: #fff !important; 
@@ -46,6 +49,17 @@ nav {
   transition: background 0.2s;
 }
 .nav-call:hover { background: var(--red-dark) !important; }
+.nav-email {
+  background: var(--blue) !important;
+  color: #fff !important;
+  padding: 0.4rem 1rem !important;
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.nav-email:hover { background: var(--blue-dark) !important; }
 
 /* HERO */
 .hero {
@@ -113,6 +127,7 @@ nav {
 .hero-title, 
 .hero-sub, 
 .btn-red, 
+.btn-email,
 .hero-hours {
   position: relative;
   z-index: 1;
@@ -160,6 +175,27 @@ nav {
   cursor: pointer;
 }
 .btn-red:hover { background: #A03E37; }
+.btn-email {
+  display: inline-block;
+  background: #1B4E92;
+  color: #fff;
+  padding: 0.7rem 1.8rem;
+  text-decoration: none;
+  font-size: 0.85rem;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background 0.2s;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+.btn-email:hover { background: #123A6E; }
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .hero-hours { 
   font-size: 0.68rem; 
   color: var(--muted); 
@@ -469,6 +505,42 @@ nav {
   color: var(--ink); 
   font-weight: 500;
 }
+.contact-buttons {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.contact-call-btn {
+  display: inline-block;
+  background: #C0524A;
+  color: #fff !important;
+  padding: 0.7rem 1.5rem;
+  text-decoration: none;
+  font-size: 0.85rem;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background 0.2s;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+.contact-call-btn:hover { background: #A03E37; }
+.contact-email-btn {
+  display: inline-block;
+  background: #1B4E92;
+  color: #fff !important;
+  padding: 0.7rem 1.5rem;
+  text-decoration: none;
+  font-size: 0.85rem;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background 0.2s;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+.contact-email-btn:hover { background: #123A6E; }
 
 /* FOOTER */
 footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1.5rem 1.2rem; font-size: 0.7rem; letter-spacing: 0.06em; }
@@ -559,13 +631,21 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1.5re
   .hr-row {
     max-width: 100%;
   }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 480px) {
   .hero {
     padding-top: 66px;
   }
-  .btn-red {
+  .btn-red, .btn-email, .contact-call-btn, .contact-email-btn {
     padding: 0.6rem 1.4rem;
     font-size: 0.8rem;
   }
@@ -585,7 +665,11 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1.5re
   <ul class="nav-links">
     <li class="nav-hide"><a href="#services">Services</a></li>
     <li class="nav-hide"><a href="#contact">Hours</a></li>
-    <li><a href="tel:6462263657" class="nav-call">Call Us</a></li>
+    <li class="nav-hide"><a href="#map">Map</a></li>
+    <li><div class="nav-buttons">
+      <a href="tel:6462263657" class="nav-call">📞 Call</a>
+      <a href="mailto:seanwangshen1688@gmail.com" class="nav-email">✉️ Email</a>
+    </div></li>
   </ul>
 </nav>
 
@@ -595,8 +679,11 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1.5re
   </div>
   <div class="hero-tag">Hampshire Mall · 367 Russell St · Hadley MA</div>
   <h1 class="hero-title">Feel <span>better</span><br>when you leave.</h1>
-  <p class="hero-sub">Real massage therapy. Right pressure. No gimmicks.</p>
-  <a href="tel:6462263657" class="btn-red">Call to Book</a>
+  <p class="hero-sub">Real massage therapy. Right pressure. No gimmicks. Reach out by phone or email — we'll get back to you promptly.</p>
+  <div class="hero-buttons">
+    <a href="tel:6462263657" class="btn-red">📞 Call to Book</a>
+    <a href="mailto:seanwangshen1688@gmail.com" class="btn-email">✉️ Email Us</a>
+  </div>
   <div class="hero-hours">Mon–Sat 11am–8pm &nbsp;·&nbsp; Sun 11am–6pm &nbsp;·&nbsp; Walk-ins welcome</div>
 </section>
 
@@ -692,11 +779,11 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1.5re
   </div>
 </section>
 
-<!-- CONTACT SECTION - FIXED -->
+<!-- CONTACT SECTION - FIXED WITH EMAIL BUTTON -->
 <section class="contact" id="contact">
   <div class="ct-block">
     <h3>Find Us</h3>
-    <p><strong>Hampshire Mall</strong><br>367 Russell St<br>Hadley, MA 01035<br><br><a href="tel:6462263657">(646) 226-3657</a></p>
+    <p><strong>Hampshire Mall</strong><br>367 Russell St<br>Hadley, MA 01035<br><br><a href="tel:6462263657">(646) 226-3657</a><br><a href="mailto:seanwangshen1688@gmail.com">seanwangshen1688@gmail.com</a></p>
   </div>
   <div class="ct-block">
     <h3>Hours</h3>
@@ -705,12 +792,15 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1.5re
   </div>
   <div class="ct-block">
     <h3>Booking</h3>
-    <p>Walk-ins welcome. Call ahead to make sure we're ready for you.</p>
-    <a href="tel:6462263657" class="btn-red" style="display: inline-block; background: #C0524A; color: #fff; padding: 0.7rem 1.8rem; text-decoration: none; font-size: 0.85rem; border-radius: 2px; white-space: nowrap; transition: background 0.2s; font-weight: 500; border: none; cursor: pointer; margin-top: 1rem;">Call Now</a>
+    <p>Walk-ins welcome. Call, email, or just stop by — we'll take care of you. Prefer email? Send us a message and we'll get back to you within a few hours.</p>
+    <div class="contact-buttons">
+      <a href="tel:6462263657" class="contact-call-btn">📞 Call Now</a>
+      <a href="mailto:seanwangshen1688@gmail.com" class="contact-email-btn">✉️ Email Now</a>
+    </div>
   </div>
 </section>
 
-<footer>© 2025 Body Spa · Hampshire Mall, Hadley MA</footer>
+<footer>© 2025 Body Spa · Hampshire Mall, Hadley MA · <a href="tel:6462263657" style="color:#C0524A">(646) 226-3657</a> · <a href="mailto:seanwangshen1688@gmail.com" style="color:#1B4E92">seanwangshen1688@gmail.com</a></footer>
 
 <script>
 const io = new IntersectionObserver(entries => {
