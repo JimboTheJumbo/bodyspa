@@ -47,7 +47,7 @@ nav {
 }
 .nav-call:hover { background: var(--red-dark) !important; }
 
-/* HERO - CENTERED */
+/* HERO - CENTERED with subtle decorative elements */
 .hero {
   padding-top: 70px;
   min-height: 42vh;
@@ -61,7 +61,66 @@ nav {
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--border);
   background: var(--cream);
+  position: relative;
+  overflow: hidden;
 }
+
+/* Subtle decorative circles at top */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(192,82,74,0.03) 0%, rgba(192,82,74,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -80px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(192,82,74,0.02) 0%, rgba(192,82,74,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle decorative dots pattern */
+.hero .deco-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero .deco-dots span {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  background: var(--red);
+  border-radius: 50%;
+  margin: 0 4px;
+}
+
+/* Content stays above decorations */
+.hero-tag, 
+.hero-title, 
+.hero-sub, 
+.btn-red, 
+.hero-hours {
+  position: relative;
+  z-index: 1;
+}
+
 .hero-tag { 
   font-size: 0.62rem; 
   letter-spacing: 0.15em; 
@@ -138,7 +197,7 @@ nav {
 .photo-caption .cn { font-family: 'Noto Serif SC', serif; color: rgba(255,210,195,0.95); }
 
 /* SERVICES */
-.services { padding: 3rem 1.2rem; background: var(--offwhite); }
+.services { padding: 3rem 1.2rem; background: var(--offwhite); position: relative; }
 .sec-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red-warm); margin-bottom: 0.3rem; text-align: center; }
 .sec-title { font-family: 'Noto Serif SC', serif; font-size: 1.6rem; font-weight: 300; margin-bottom: 1.8rem; color: var(--ink); text-align: center; }
 .svc-grid {
@@ -157,13 +216,75 @@ nav {
 .svc-cn { font-family: 'Noto Serif SC', serif; font-size: 0.65rem; color: var(--red-warm); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
 .svc-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.6; }
 
-/* CONTACT SECTION */
+/* MAP SECTION */
+.map-section {
+  background: var(--cream);
+  padding: 3rem 1.2rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.map-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.map-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.map-sub {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.map-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 8px;
+}
+.directions-btn {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.6rem 1.5rem;
+  background: transparent;
+  color: var(--red);
+  border: 1.5px solid var(--red);
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.directions-btn:hover {
+  background: var(--red);
+  color: #fff;
+}
+
+/* CONTACT SECTION - MOVED TO BOTTOM */
 .contact {
   background: #EDD9D6;
   color: var(--ink);
   padding: 3rem 1.2rem;
-  display: grid; grid-template-columns: 1fr; gap: 2rem;
-  border-top: 1px solid rgba(184,50,40,0.1);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 .ct-block h3 { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red-mid); margin-bottom: 0.9rem; }
 .ct-block p { font-size: 0.84rem; line-height: 2; color: var(--muted); }
@@ -185,6 +306,7 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
   .services { padding: 4rem 2rem; }
   .svc-grid { grid-template-columns: repeat(3, 1fr); }
   .contact { padding: 4rem 2rem; grid-template-columns: 1fr 1fr 1fr; }
+  .map-section { padding: 4rem 2rem; }
   footer { padding: 1rem 2rem; }
 }
 @media (min-width: 1200px) {
@@ -197,7 +319,7 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
   .hero-title {
     font-size: 4rem;
   }
-  .services, .contact {
+  .services, .contact, .map-section {
     padding: 5rem 3rem;
   }
 }
@@ -208,6 +330,7 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
   .photo-wrap { height: 65vh; max-height: none; }
   .services { padding: 5rem 2.5rem; }
   .contact { padding: 4rem 2.5rem; }
+  .map-section { padding: 4rem 2.5rem; }
 }
 
 @media (max-width: 480px) {
@@ -220,6 +343,13 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
   }
   .hero-sub {
     font-size: 0.85rem;
+  }
+  .contact {
+    text-align: center;
+  }
+  .hr-row {
+    justify-content: center;
+    gap: 1rem;
   }
 }
 </style>
@@ -236,10 +366,13 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
 </nav>
 
 <section class="hero">
+  <!-- Subtle decorative dots -->
+  <div class="deco-dots">
+    <span>•</span> <span>•</span> <span>•</span> <span>•</span> <span>•</span>
+  </div>
   <div class="hero-tag">Hampshire Mall · 367 Russell St · Hadley MA</div>
   <h1 class="hero-title">Feel <span>better</span><br>when you leave.</h1>
   <p class="hero-sub">A small family-run studio. Real massage, right pressure.</p>
-  <!-- TOP BUTTON: background #C0524A, white text -->
   <a href="tel:6462263657" class="btn-red">Call to Book</a>
   <div class="hero-hours">Mon–Sat 11am–8pm &nbsp;·&nbsp; Sun 11am–6pm &nbsp;·&nbsp; Walk-ins welcome</div>
 </section>
@@ -292,6 +425,24 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
   </div>
 </section>
 
+<!-- GOOGLE MAPS SECTION -->
+<section class="map-section" id="map">
+  <div class="map-container">
+    <h2 class="map-title">Find Us Here</h2>
+    <p class="map-sub">Hampshire Mall · 367 Russell St, Hadley, MA 01035</p>
+    <div class="map-wrapper">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.1234567890123!2d-72.5884!3d42.352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e6e5e5e5e5e5e5%3A0x1234567890abcdef!2s367%20Russell%20St%2C%20Hadley%2C%20MA%2001035!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <a href="https://maps.google.com/?q=367+Russell+St+Hadley+MA+01035" target="_blank" class="directions-btn">Get Directions →</a>
+  </div>
+</section>
+
+<!-- CONTACT SECTION - NOW AT BOTTOM -->
 <section class="contact" id="contact">
   <div class="ct-block">
     <h3>Find Us</h3>
@@ -305,7 +456,6 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
   <div class="ct-block">
     <h3>Booking</h3>
     <p>Walk-ins welcome. Call ahead to make sure we're ready for you.</p>
-    <!-- BOTTOM BUTTON: Copied EXACT styles from the button above (background #C0524A, white text, same padding, font-size, etc.) -->
     <a href="tel:6462263657" style="display: inline-block; background: #C0524A; color: #fff; padding: 0.7rem 1.8rem; text-decoration: none; font-size: 0.85rem; border-radius: 2px; white-space: nowrap; transition: background 0.2s; font-weight: 500; border: none; cursor: pointer; margin-top: 1rem;" onmouseover="this.style.background='#A03E37'" onmouseout="this.style.background='#C0524A'">Call Now</a>
   </div>
 </section>
