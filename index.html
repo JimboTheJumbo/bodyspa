@@ -285,30 +285,80 @@ nav {
   font-size: 0.7rem;
 }
 
-/* SERVICES */
-.services { padding: 3rem 1.2rem; background: var(--offwhite); }
-.sec-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red-warm); margin-bottom: 0.3rem; text-align: center; }
-.sec-title { font-family: 'Noto Serif SC', serif; font-size: 1.6rem; font-weight: 300; margin-bottom: 1.8rem; color: var(--ink); text-align: center; }
+/* SERVICES - CENTERED WITH BORDERS */
+.services { 
+  padding: 4rem 2rem; 
+  background: var(--offwhite);
+  display: flex;
+  justify-content: center;
+}
+.services-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+.sec-label { 
+  font-size: 0.7rem; 
+  letter-spacing: 0.18em; 
+  text-transform: uppercase; 
+  color: var(--red-warm); 
+  margin-bottom: 0.5rem; 
+  text-align: center; 
+}
+.sec-title { 
+  font-family: 'Noto Serif SC', serif; 
+  font-size: 2rem; 
+  font-weight: 300; 
+  margin-bottom: 2.5rem; 
+  color: var(--ink); 
+  text-align: center; 
+}
 .svc-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  border-top: 1px solid var(--border); border-left: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .svc-item {
-  padding: 1.2rem 1rem;
-  border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
-  opacity: 0; transform: translateY(12px);
-  transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s;
+  background: #fff;
+  padding: 1.8rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
-.svc-item:hover { background: var(--cream); }
-.svc-item.visible { opacity: 1; transform: none; }
-.svc-name { font-size: 0.85rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
-.svc-cn { font-family: 'Noto Serif SC', serif; font-size: 0.65rem; color: var(--red-warm); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
-.svc-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.6; }
+.svc-item:hover { 
+  background: var(--cream);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(192,82,74,0.1);
+  border-color: var(--red-warm);
+}
+.svc-item.visible { opacity: 1; transform: translateY(0); }
+.svc-name { 
+  font-size: 1.1rem; 
+  font-weight: 500; 
+  color: var(--ink); 
+  margin-bottom: 0.3rem; 
+}
+.svc-cn { 
+  font-family: 'Noto Serif SC', serif; 
+  font-size: 0.7rem; 
+  color: var(--red-warm); 
+  letter-spacing: 0.1em; 
+  margin-bottom: 0.8rem; 
+}
+.svc-desc { 
+  font-size: 0.8rem; 
+  color: var(--muted); 
+  line-height: 1.6; 
+}
 
 /* MAP SECTION */
 .map-section {
   background: var(--cream);
-  padding: 3rem 1.2rem;
+  padding: 4rem 2rem;
   text-align: center;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -319,15 +369,15 @@ nav {
 }
 .map-title {
   font-family: 'Noto Serif SC', serif;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 300;
   color: var(--ink);
   margin-bottom: 0.5rem;
 }
 .map-sub {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   letter-spacing: 0.05em;
 }
 .map-wrapper {
@@ -336,8 +386,8 @@ nav {
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 .map-wrapper iframe {
   position: absolute;
@@ -346,17 +396,17 @@ nav {
   width: 100%;
   height: 100%;
   border: 0;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 .directions-btn {
   display: inline-block;
-  margin-top: 1.2rem;
-  padding: 0.6rem 1.5rem;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.8rem;
   background: transparent;
   color: var(--red);
   border: 1.5px solid var(--red);
-  border-radius: 2px;
-  font-size: 0.8rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -370,21 +420,51 @@ nav {
 .contact {
   background: #EDD9D6;
   color: var(--ink);
-  padding: 3rem 1.2rem;
+  padding: 4rem 2rem;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.ct-block h3 { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red-mid); margin-bottom: 0.9rem; }
-.ct-block p { font-size: 0.84rem; line-height: 2; color: var(--muted); }
-.ct-block a { color: var(--red-dark); text-decoration: none; font-weight: 500; }
-.ct-block strong { color: var(--ink); font-weight: 500; }
-.hr-row { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--muted); padding: 0.35rem 0; border-bottom: 1px solid rgba(184,50,40,0.12); }
+.ct-block {
+  text-align: center;
+}
+.ct-block h3 { 
+  font-size: 0.7rem; 
+  letter-spacing: 0.18em; 
+  text-transform: uppercase; 
+  color: var(--red-mid); 
+  margin-bottom: 1rem; 
+}
+.ct-block p { 
+  font-size: 0.9rem; 
+  line-height: 2; 
+  color: var(--muted); 
+}
+.ct-block a { 
+  color: var(--red-dark); 
+  text-decoration: none; 
+  font-weight: 500; 
+}
+.ct-block strong { 
+  color: var(--ink); 
+  font-weight: 500; 
+}
+.hr-row { 
+  display: flex; 
+  justify-content: center; 
+  gap: 1.5rem;
+  font-size: 0.85rem; 
+  color: var(--muted); 
+  padding: 0.5rem 0; 
+  border-bottom: 1px solid rgba(184,50,40,0.12); 
+}
 .hr-row:last-child { border: none; }
 .hr-row strong { color: var(--ink); }
 
 /* FOOTER */
-footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 1.2rem; font-size: 0.68rem; letter-spacing: 0.06em; }
+footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1.5rem 2rem; font-size: 0.7rem; letter-spacing: 0.06em; }
 
 /* MEDIA QUERIES */
 @media (min-width: 768px) {
@@ -392,11 +472,9 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
     flex-direction: row;
     align-items: center;
   }
-  
   .text-box h3 {
     font-size: 1.8rem;
   }
-  
   .description {
     font-size: 1rem;
   }
@@ -407,11 +485,10 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
   .nav-links .nav-hide { display: block; }
   .hero { padding-left: 2rem; padding-right: 2rem; }
   .hero-sub { max-width: 500px; }
-  .services { padding: 4rem 2rem; }
-  .svc-grid { grid-template-columns: repeat(3, 1fr); }
-  .contact { padding: 4rem 2rem; grid-template-columns: 1fr 1fr 1fr; }
+  .services { padding: 5rem 2rem; }
+  .contact { padding: 4rem 2rem; }
   .map-section { padding: 4rem 2rem; }
-  footer { padding: 1rem 2rem; }
+  footer { padding: 1.5rem 2rem; }
   .image-text-section {
     padding: 4rem 2rem;
   }
@@ -437,10 +514,28 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
   .hero { padding-left: 2.5rem; padding-right: 2.5rem; }
   .hero-title { font-size: clamp(2.2rem, 4.5vw, 3.8rem); }
   .services { padding: 5rem 2.5rem; }
-  .contact { padding: 4rem 2.5rem; }
-  .map-section { padding: 4rem 2.5rem; }
+  .contact { padding: 5rem 2.5rem; }
+  .map-section { padding: 5rem 2.5rem; }
   .image-text-section {
     padding: 5rem 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  .hr-row {
+    justify-content: center;
+    gap: 1rem;
+  }
+  .svc-grid {
+    grid-template-columns: 1fr;
+  }
+  .text-box h3 {
+    font-size: 1.3rem;
   }
 }
 
@@ -455,15 +550,8 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
   .hero-sub {
     font-size: 0.85rem;
   }
-  .contact {
-    text-align: center;
-  }
-  .hr-row {
-    justify-content: center;
-    gap: 1rem;
-  }
-  .text-box h3 {
-    font-size: 1.3rem;
+  .sec-title {
+    font-size: 1.5rem;
   }
 }
 </style>
@@ -525,39 +613,42 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
   </div>
 </section>
 
+<!-- SERVICES - CENTERED WITH BORDERS -->
 <section class="services" id="services">
-  <div class="sec-label">What We Offer</div>
-  <h2 class="sec-title">Services</h2>
-  <div class="svc-grid">
-    <div class="svc-item">
-      <div class="svc-name">Chair Massage</div>
-      <div class="svc-cn">椅背按摩</div>
-      <p class="svc-desc">Back, neck and shoulders.</p>
-    </div>
-    <div class="svc-item">
-      <div class="svc-name">Hot Stone</div>
-      <div class="svc-cn">热石按摩</div>
-      <p class="svc-desc">Heated stones, deep relief.</p>
-    </div>
-    <div class="svc-item">
-      <div class="svc-name">Full Body</div>
-      <div class="svc-cn">全身按摩</div>
-      <p class="svc-desc">Head to toe, right intensity.</p>
-    </div>
-    <div class="svc-item">
-      <div class="svc-name">Leg Massage</div>
-      <div class="svc-cn">腿部按摩</div>
-      <p class="svc-desc">On comfortable couches.</p>
-    </div>
-    <div class="svc-item">
-      <div class="svc-name">Facial</div>
-      <div class="svc-cn">面部护理</div>
-      <p class="svc-desc">Gentle, refreshing care.</p>
-    </div>
-    <div class="svc-item">
-      <div class="svc-name">Reflexology</div>
-      <div class="svc-cn">足部反射</div>
-      <p class="svc-desc">Foot pressure therapy.</p>
+  <div class="services-container">
+    <div class="sec-label">What We Offer</div>
+    <h2 class="sec-title">Services</h2>
+    <div class="svc-grid">
+      <div class="svc-item">
+        <div class="svc-name">Chair Massage</div>
+        <div class="svc-cn">椅背按摩</div>
+        <p class="svc-desc">Back, neck and shoulders. Quick relief for tension areas.</p>
+      </div>
+      <div class="svc-item">
+        <div class="svc-name">Hot Stone</div>
+        <div class="svc-cn">热石按摩</div>
+        <p class="svc-desc">Heated stones melt away deep muscle tension.</p>
+      </div>
+      <div class="svc-item">
+        <div class="svc-name">Full Body</div>
+        <div class="svc-cn">全身按摩</div>
+        <p class="svc-desc">Head to toe, with the right pressure for you.</p>
+      </div>
+      <div class="svc-item">
+        <div class="svc-name">Leg Massage</div>
+        <div class="svc-cn">腿部按摩</div>
+        <p class="svc-desc">Relax on comfortable couches, target leg fatigue.</p>
+      </div>
+      <div class="svc-item">
+        <div class="svc-name">Facial</div>
+        <div class="svc-cn">面部护理</div>
+        <p class="svc-desc">Gentle, refreshing care for your skin.</p>
+      </div>
+      <div class="svc-item">
+        <div class="svc-name">Reflexology</div>
+        <div class="svc-cn">足部反射</div>
+        <p class="svc-desc">Foot pressure therapy for whole-body balance.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -593,7 +684,7 @@ footer { background: #EDE8E6; color: #9A8F8D; text-align: center; padding: 1rem 
   <div class="ct-block">
     <h3>Booking</h3>
     <p>Walk-ins welcome. Call ahead to make sure we're ready for you.</p>
-    <a href="tel:6462263657" style="display: inline-block; background: #C0524A; color: #fff; padding: 0.7rem 1.8rem; text-decoration: none; font-size: 0.85rem; border-radius: 2px; white-space: nowrap; transition: background 0.2s; font-weight: 500; border: none; cursor: pointer; margin-top: 1rem;" onmouseover="this.style.background='#A03E37'" onmouseout="this.style.background='#C0524A'">Call Now</a>
+    <a href="tel:6462263657" style="display: inline-block; background: #C0524A; color: #fff; padding: 0.7rem 1.8rem; text-decoration: none; font-size: 0.85rem; border-radius: 30px; white-space: nowrap; transition: background 0.2s; font-weight: 500; border: none; cursor: pointer; margin-top: 1rem;" onmouseover="this.style.background='#A03E37'" onmouseout="this.style.background='#C0524A'">Call Now</a>
   </div>
 </section>
 
